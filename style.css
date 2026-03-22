@@ -1,240 +1,697 @@
 :root {
-    /* Cores Base */
-    --bg-color: #0a080f;           
-    --card-bg: #13101c;           
+
+    /* Fundo e Base - Tons de roxo quase preto */
+
+    --bg-color: #0a080f;          
+
+    --card-bg: #13101c;          
+
     --text-color: #e0dced;        
+
     --white: #ffffff;
-    
-    /* Paleta Lilás */
-    --primary-color: #a855f7;      
-    --secondary-color: #6b21a8;    
-    --accent-color: #d8b4fe;       
-    
-    /* Degradê */
+
+   
+
+    /* Paleta Lilás Forte / Roxo */
+
+    --primary-color: #a855f7;      /* Lilás vibrante */
+
+    --secondary-color: #6b21a8;    /* Roxo profundo */
+
+    --accent-color: #d8b4fe;       /* Lilás claro para detalhes */
+
+   
+
+    /* Degradê para o Nome e Botões */
+
     --main-gradient: linear-gradient(20deg, #a855f7, hsl(240, 69%, 71%), #9164df);
+
     --font-main: 'Poppins', sans-serif;
+
 }
+
+
 
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
+
 
 body {
+
     font-family: var(--font-main);
+
     background-color: var(--bg-color);
+
     color: var(--text-color);
-    line-height: 1.6;
-    margin: 0; /* Garante que nada fique afastado das bordas */
-    padding: 0;
-    overflow-x: hidden; /* Evita que a barra lilás crie rolagem lateral */
+
+    scroll-behavior: smooth;
+
 }
+
+
 
 .container {
+
     max-width: 1200px;
+
     margin: 0 auto;
-    padding: 0 20px;
+
+    padding: 0 40px;
+
 }
 
-/* --- CABEÇALHO DE CONTATO (TOPO DO CARTAZ) --- */
-/* --- CABEÇALHO DE CONTATO (CENTRALIZADO) --- */
-.contato-topo-fixo {
-    display: flex;
-    justify-content: center; /* CENTRALIZA NA HORIZONTAL */
-    align-items: center;     /* CENTRALIZA NA VERTICAL */
-    gap: 40px;               /* ESPAÇO ENTRE WHATSAPP E INSTAGRAM */
-    background: var(--main-gradient); 
-    padding: 15px 0;
-    width: 100vw; 
-    position: relative;
-    margin-left: calc(-50vw + 50%); 
-    margin-top: 0;           /* ENCOSTA NO TOPO */
-    margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+
+
+/* Navbar */
+
+.navbar {
+
+    padding: 25px 0;
+
+    position: fixed;
+
+    width: 100%;
+
+    top: 0;
+
+    background: rgba(18, 13, 13, 0.95);
+
+    z-index: 1000;
+
 }
 
-.contato-topo-fixo a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
+
+
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--white); }
+
+.logo span { color: var(--primary-color); }
+
+.nav-links { display: flex; list-style: none; gap: 30px; }
+
+.nav-links a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: 0.3s; }
+
+.nav-links a:hover { color: var(--primary-color); }
+
+
+
+/* Hero Section */
+
+.hero {
+
+    height: 100vh;
+
     display: flex;
+
     align-items: center;
-    gap: 5px;               /* ESPAÇO ENTRE O ÍCONE E O TEXTO */
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    /* Adiciona uma luz de fundo suave atrás do conteúdo */
+
+    background: radial-gradient(circle at 10% 30%, rgba(255, 77, 109, 0.1), transparent 40%);
+
 }
 
-.contato-topo-fixo i {
-    font-size: 1.4rem;
+
+
+.hero-content { flex: 1.2; }
+
+
+
+.role-tag {
+
+    background: rgba(255, 77, 109, 0.1);
+
+    border: 1px solid rgba(255, 77, 109, 0.3);
+
+    color: var(--primary-color);
+
+    padding: 8px 16px;
+
+    border-radius: 6px;
+
+    font-size: 0.85rem;
+
+    font-weight: 500;
+
+    display: inline-block;
+
 }
 
-/* Ajuste para o título não ficar grudado */
-.section-title {
-    margin-top: 20px;
-    margin-bottom: 25px;
-}
-/* --- 2. SEÇÃO DE SERVIÇOS (FLYER) --- */
-.servicos-section {
-    padding-top: 30px;
-    padding-bottom: 50px;
-    text-align: center;
+
+
+/* DEGRADÊ NO NOME */
+
+.hero h1 {
+
+    font-size: 4rem;
+
+    margin: 20px 0;
+
+    line-height: 1.1;
+
+    background: var(--main-gradient);
+
+    -webkit-background-clip: text; /* Faz o degradê aparecer no texto */
+
+    -webkit-text-fill-color: transparent; /* Remove a cor sólida */
+
+    font-weight: 700;
+
 }
 
-.section-title {
-    font-size: 2.2rem;
-    margin-bottom: 25px;
+
+
+.hero p {
+
+    font-size: 1.1rem;
+
+    color: #b5a4a4;
+
+    margin-bottom: 30px;
+
+    max-width: 500px;
+
+}
+
+
+
+.social-links { display: flex; gap: 20px; font-size: 1.5rem; margin-bottom: 30px; }
+
+.social-links a:hover { color: var(--primary-color); transform: translateY(-3px); }
+
+
+
+.hero-btns { display: flex; gap: 15px; }
+
+
+
+.btn-filled {
+
+    background: var(--main-gradient);
+
     color: var(--white);
+
+    padding: 12px 28px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2);
+
 }
+
+
+
+.btn-filled:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.4);
+
+}
+
+
+
+.btn-outline {
+
+    border: 1px solid var(--primary-color);
+
+    padding: 12px 28px;
+
+    border-radius: 8px;
+
+    color: var(--primary-color);
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+
+
+.btn-outline:hover {
+
+    background: rgba(255, 77, 109, 0.05);
+
+}
+
+
+
+.hero-image img {
+
+    width: 400px;
+
+    height: 400px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 5px solid var(--secondary-color); /* Borda em vinho profundo */
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+/* Seção Portfólio */
+
+#portfolio { padding: 100px 40px; }
+
+.section-title { font-size: 2.5rem; text-align: center; margin-bottom: 60px; color: var(--white); }
+
+
+
+.grid-projects {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 30px;
+
+}
+
+
+
+.card {
+
+    background: var(--card-bg);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+}
+
+
+
+.card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: var(--primary-color);
+
+}
+
+
+
+.card-img { height: 200px; background-size: cover; background-position: center; background-color: #2a1f1f; }
+
+
+
+.card-content { padding: 25px; }
+
+.card-content h3 { margin-bottom: 10px; color: var(--white); }
+
+.card-content p { color: #b5a4a4; font-size: 0.9rem; margin-bottom: 20px; }
+
+.link-projeto { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+
+
+
+/* Footer */
+
+footer {
+
+    text-align: center;
+
+    padding: 60px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+}
+
+
+
+.socials { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+
+.socials a { color: #b5a4a4; text-decoration: none; font-size: 0.9rem; }
+
+
+
+/* Mobile */
+
+@media (max-width: 968px) {
+
+    .hero { flex-direction: column-reverse; text-align: center; height: auto; padding: 120px 20px 60px; }
+
+    .hero h1 { font-size: 2.8rem; }
+
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+
+    .hero-image img { width: 280px; height: 280px; }
+
+    .hero-btns { flex-direction: column; width: 100%; }
+
+}
+
+
+
+/* Configurações específicas da Galeria */
+
+.bg-galeria {
+
+    background-color: var(--bg-color);
+
+}
+
+
+
+.galeria-section {
+
+    padding-top: 120px;
+
+    padding-bottom: 60px;
+
+}
+
+
+
+.btn-back {
+
+    color: var(--primary-color);
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+
+.grid-galeria {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 30px;
+
+    margin-top: 40px;
+
+}
+
+
+
+/* O Card igual ao da sua imagem */
+
+.card-art {
+
+    background: #13101c; /* Tom de roxo bem escuro */
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(168, 85, 247, 0.1);
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.card-art:hover {
+
+    transform: translateY(-10px);
+
+    border-color: var(--primary-color);
+
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+
+}
+
+
+
+.card-img-wrapper {
+
+    width: 100%;
+
+    height: 250px;
+
+    overflow: hidden;
+
+    background: #000; /* Fundo preto para logos com transparência */
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+.card-img-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain; /* Garante que o logo não seja cortado */
+
+    padding: 20px;
+
+}
+
+
+
+.card-art-info {
+
+    padding: 25px;
+
+}
+
+
+.card-art-info h3 {
+
+    color: var(--white);
+
+    font-size: 1.2rem;
+
+    margin-bottom: 8px;
+
+}
+
+
+.card-art-info p {
+
+    color: #b5a4a4;
+
+    font-size: 0.9rem;
+
+}
+
+
+/* Ajuste do Título da Seção */
 
 .section-title span {
+
     background: var(--main-gradient);
+
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
+
 }
 
-/* --- 3. APRESENTAÇÃO: FOTO À ESQUERDA --- */
-.apresentacao-cartaz {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    max-width: 850px;
-    margin: 0 auto 40px;
-    text-align: left; /* Garante o texto alinhado à esquerda no PC */
-}
 
-.foto-perfil img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 3px solid var(--primary-color);
-    object-fit: cover;
-    flex-shrink: 0;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
-}
+/* Estilizando o link dentro do card de projeto */
 
-.texto-apresentação p {
-    font-size: 1rem;
-    color: var(--text-color);
-}
+.link-projeto {
 
-/* --- 4. GRID DE SERVIÇOS (CARDS) --- */
-.grid-servicos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
+    color: var(--primary-color);
 
-.card-servico {
-    background: var(--card-bg);
-    padding: 25px;
-    border-radius: 20px;
-    border: 1px solid rgba(168, 85, 247, 0.1);
-    text-align: left;
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 0.95rem;
+
+    display: inline-block;
+
+    position: relative;
+
     transition: 0.3s;
+
 }
 
-.card-servico:hover {
-    border-color: var(--primary-color);
-    transform: translateY(-5px);
+
+.link-projeto:hover {
+
+    letter-spacing: 1px; /* Dá um leve espaçamento ao passar o mouse */
+
+    color: var(--accent-color);
+
 }
 
-.card-servico i.main-icon {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    display: block;
+
+/* Opcional: Efeito de hover na imagem do card */
+
+.card-art:hover .card-img-wrapper img {
+
+    transform: scale(1.1); /* Zoom suave na arte ao passar o mouse */
+
+    transition: 0.5s ease;
+
 }
 
-.card-servico h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: var(--white);
+/* Isso garante que o link tenha a mesma cor, antes e depois de clicado */
+
+.link-projeto,
+
+.link-projeto:visited {
+
+    color: var(--primary-color) !important; /* Usa o seu lilás vibrante */
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
 }
 
-.card-servico p {
-    font-size: 0.9rem;
-    color: #b5a4a4;
-    margin-bottom: 15px;
+
+
+/* Mantém o destaque quando você passa o mouse */
+
+.link-projeto:hover {
+
+    color: var(--accent-color) !important; /* O lilás mais claro que definimos */
+
+    letter-spacing: 1px;
 }
 
-.lista-servicos {
-    list-style: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 15px;
+
+
+.grid-galeria {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+    gap: 20px; /* Um pequeno espaço entre elas fica mais elegante para artes variadas */
+
+    padding: 20px;
+
 }
 
-.lista-servicos li {
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+
+.card-art {
+
+    background: #1a1625; /* Um roxo bem profundo para destacar as artes coloridas */
+
+    border-radius: 15px; /* Arredondado sutil combina com o estilo das canecas e flyers */
+
+    overflow: hidden;
+
+    border: 1px solid rgba(168, 85, 247, 0.2);
+
 }
 
-.lista-servicos li i {
-    color: var(--primary-color);
-    font-size: 1rem;
+
+/* Ajuste para Galeria Estética */
+
+.grid-galeria {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+    gap: 25px; /* Espaço entre as artes para não embolar */
+
+    padding: 40px 0;
+
 }
 
-/* --- AJUSTES EXCLUSIVOS PARA CELULAR (PRINT 2X2) --- */
-@media (max-width: 768px) {
-    .contato-topo-fixo {
-        display: flex;
-        justify-content: center; /* GARANTE A CENTRALIZAÇÃO NO CELULAR */
-        gap: 15px;               /* REDUZ O ESPAÇO PARA CABER NO PRINT */
-        padding: 12px 0;
-        margin-top: 0;
-        width: 100vw;
-    }
+.card-art {
 
-    .contato-topo-fixo a {
-        font-size: 0.8rem;
-    }
+    background: var(--card-bg);
+
+    border-radius: 15px; /* Deixa o visual mais moderno e suave */
+
+    overflow: hidden;
+
+    position: relative;
+
+    height: 400px;
+
+    border: 1px solid rgba(168, 85, 247, 0.1);
+
+    transition: transform 0.4s ease;
+
 }
 
-    .section-title {
-        font-size: 1.6rem;
-    }
+.card-art img {
 
-    .apresentacao-cartaz {
-        flex-direction: row; /* FOTO À ESQUERDA NO CELULAR */
-        gap: 15px;
-        margin-bottom: 25px;
-        padding: 0 10px;
-    }
+    width: 100%;
 
-    .foto-perfil img {
-        width: 85px; 
-        height: 85px;
-    }
+    height: 100%;
 
-    .texto-apresentação p {
-        font-size: 0.75rem;
-        line-height: 1.3;
-    }
+    object-fit: cover; /* Garante que as fotos preencham o espaço sem distorcer */
 
-    /* FORÇA O GRID 2X2 NO CELULAR */
-    .grid-servicos {
-        grid-template-columns: 1fr 1fr; 
-        gap: 10px;
-    }
+    transition: 0.5s ease;
 
-    .card-servico {
-        padding: 15px 10px;
-    }
+}
 
-    .card-servico h3 {
-        font-size: 0.95rem;
-    }
+.card-art:hover img {
 
-    .card-servico p {
-        font-size: 0.7rem;
-    }
+    transform: scale(1.1) rotate(1deg); /* Leve giro e zoom no hover */
 
-    .lista-servicos li {
-        font-size: 0.65rem; 
-        gap: 5px;
-    }
+    filter: brightness(0.6);
+
+}
+
+
+.card-art-info {
+
+    position: absolute;
+
+    bottom: -100%;
+
+    left: 0;
+
+    width: 100%;
+
+    background: linear-gradient(transparent, rgba(19, 16, 28, 0.95));
+
+    padding: 25px;
+
+    transition: 0.4s ease;
+
+}
+
+.card-art:hover .card-art-info {
+
+    bottom: 0;
+
 }
