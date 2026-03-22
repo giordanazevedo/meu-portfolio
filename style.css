@@ -695,85 +695,99 @@ footer {
     bottom: 0;
 
 }
-/* Seção de Contato */
+/* Seção de Contato Dark Mode */
 #contato {
-    padding: 80px 0;
+    padding: 100px 0;
+    color: #fff;
+    background-color: #0b0b0d; /* Cor escura do fundo */
 }
 
 .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-between;
 }
 
-.contact-info p {
-    margin-bottom: 30px;
-    color: #666;
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
 .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    margin-top: 40px;
 }
 
 .detail-item {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
 .detail-item i {
-    font-size: 2rem;
-    color: #007bff; /* Ajuste para a cor principal do seu tema */
-    background: #f0f4f8;
-    padding: 10px;
-    border-radius: 8px;
+    font-size: 1.5rem;
+    color: #a855f7; /* Cor roxa combinando com o botão */
 }
 
 .detail-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 2px;
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 5px;
+    font-weight: 300;
 }
 
-/* Formulário */
+.detail-item p {
+    font-weight: 600;
+}
+
+/* Ajuste do Formulário para Dark Mode */
 .contact-form {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.contact-form input, 
-.contact-form textarea {
+.form-group input, 
+.form-group textarea {
     width: 100%;
     padding: 15px;
-    border: 1px solid #ddd;
+    background: #1a1a1d; /* Fundo levemente mais claro que o geral */
+    border: 1px solid #333;
     border-radius: 8px;
+    color: #fff;
     font-family: 'Poppins', sans-serif;
     outline: none;
     transition: 0.3s;
 }
 
-.contact-form input:focus, 
-.contact-form textarea:focus {
-    border-color: #007bff;
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
 }
 
-.contact-form .btn-filled {
-    width: 100%;
+/* O Botão Degradê (Baseado na sua imagem) */
+.btn-submit {
+    background: linear-gradient(90deg, #8b5cf6, #d946ef);
+    color: white;
+    padding: 15px;
     border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
+.btn-submit:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
 }
