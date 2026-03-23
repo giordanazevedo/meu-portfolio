@@ -72,9 +72,10 @@ body {
     margin-top: 20px;
     margin-bottom: 25px;
 }
+/* --- 2. SEÇÃO DE SERVIÇOS (FLYER) --- */
 .servicos-section {
-    padding-top: 0 !important; /* O !important garante que nada sobrescreva isso */
-    margin-top: 0 !important;
+    padding-top: 0px;
+    padding-bottom: 50px;
     text-align: center;
 }
 
@@ -103,8 +104,8 @@ body {
 }
 
 .foto-perfil img {
-    width: 130px;
-    height: 130px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 3px solid var(--primary-color);
     object-fit: cover;
@@ -128,10 +129,14 @@ body {
     background: var(--card-bg);
     padding: 25px;
     border-radius: 20px;
-    border: 1px solid rgba(168, 85, 247, 0.1);
+    
+    /* ALTERAÇÃO AQUI: De transparente para a cor primária */
+    border: 1px solid var(--primary-color); 
+    
     text-align: left;
     transition: 0.3s;
 }
+
 
 .card-servico:hover {
     border-color: var(--primary-color);
@@ -204,8 +209,8 @@ body {
     }
 
     .foto-perfil img {
-        width: 85px; 
-        height: 85px;
+        width: 110px; 
+        height: 110px;
     }
 
     .texto-apresentação p {
@@ -220,8 +225,16 @@ body {
     }
 
     .card-servico {
-        padding: 15px 10px;
-    }
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    
+    /* ALTERAÇÃO AQUI: De transparente para a cor primária */
+    border: 1px solid var(--primary-color); 
+    
+    text-align: left;
+    transition: 0.3s;
+}
 
     .card-servico h3 {
         font-size: 0.95rem;
