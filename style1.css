@@ -72,10 +72,9 @@ body {
     margin-top: 20px;
     margin-bottom: 25px;
 }
-/* --- 2. SEÇÃO DE SERVIÇOS (FLYER) --- */
 .servicos-section {
-    padding-top: 0px;
-    padding-bottom: 50px;
+    padding-top: 0 !important; /* O !important garante que nada sobrescreva isso */
+    margin-top: 0 !important;
     text-align: center;
 }
 
