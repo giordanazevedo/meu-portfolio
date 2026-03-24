@@ -87,10 +87,10 @@ body {
 
 .section-title span {
     background: var(--main-gradient);
-    -webkit-background-clip: text;
+    -webkit-background-clip: text; /* Essa você já tem */
+    background-clip: text;         /* ADICIONE ESTA LINHA AQUI */
     -webkit-text-fill-color: transparent;
 }
-
 /* --- 3. APRESENTAÇÃO: FOTO À ESQUERDA --- */
 .apresentacao-cartaz {
     display: flex;
@@ -209,8 +209,8 @@ body {
     }
 
     .foto-perfil img {
-        width: 150px; 
-        height: 150px;
+        width: 110px; 
+        height: 110px;
     }
 
     .texto-apresentação p {
