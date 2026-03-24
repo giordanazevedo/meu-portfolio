@@ -108,23 +108,21 @@ body {
 
 .hero {
 
+   width: 100%; /* Agora o fundo ocupa a tela toda */
     height: 100vh;
-
     display: flex;
-
     align-items: center;
-
-    justify-content: space-between;
-
-    gap: 50px;
-
-    /* Adiciona uma luz de fundo suave atrás do conteúdo */
-
+    /* O gradiente agora vai aparecer na tela inteira! */
     background: radial-gradient(circle at 10% 30%, rgba(255, 77, 109, 0.1), transparent 40%);
-
 }
 
-
+.hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%; /* Importante para o container funcionar direito */
+}
 
 .hero-content { flex: 1.2; }
 
@@ -164,7 +162,9 @@ body {
 
     background: var(--main-gradient);
 
-    -webkit-background-clip: text; /* Faz o degradê aparecer no texto */
+    -webkit-background-clip: text;
+    -webkit-background-clip: text; /* Para Chrome/Safari */
+     background-clip: text;         /* Versão padrão para outros navegadores */ /* Faz o degradê aparecer no texto */
 
     -webkit-text-fill-color: transparent; /* Remove a cor sólida */
 
@@ -354,18 +354,57 @@ footer {
 
 
 
-/* Mobile */
+/* CELULAR */
+@media (max-width: 768px) {
+    
+    .hero {
+        height: auto; /* Deixa a altura livre para o conteúdo crescer verticalmente */
+        padding: 100px 0 50px 0; /* Espaço para não ficar colado na navbar fixa */
+    }
 
-@media (max-width: 968px) {
+    .hero-layout {
+        flex-direction: column-reverse; /* Empilha os itens: Imagem em cima, texto embaixo */
+        text-align: center; /* Centraliza os textos e botões */
+        gap: 30px;
+    }
 
-    .hero { flex-direction: column-reverse; text-align: center; height: auto; padding: 120px 20px 60px; }
+    .hero-content h1 {
+        font-size: 2rem; /* Ajuste esse valor como preferir (ex: 1.8rem, 2.5rem) */
+        line-height: 1.2; /* Melhora o espaçamento entre as linhas se o nome quebrar */
+        margin-bottom: 15px;
+        }
+    .hero-content {
+        flex: 1;
+        width: 100%;
+    }
 
-    .hero h1 { font-size: 2.8rem; }
+    .hero-btns {
+        justify-content: center; /* Centraliza os botões */
+        flex-direction: column; /* Botões um em cima do outro se forem grandes */
+        gap: 15px;
+    }
 
-    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .social-links {
+        justify-content: center; /* Centraliza os ícones sociais */
+    }
 
-    .hero-image img { width: 280px; height: 280px; }
-
+    .hero-image img {
+    /* Define um tamanho fixo e quadrado para a imagem */
+    width: 300px; /* Ajuste esse valor conforme necessário para o tamanho que deseja */
+    height: 300px; /* Deve ser o mesmo valor que a largura */
+    
+    /* Faz com que a imagem preencha o quadrado sem distorcer, cortando as sobras */
+    object-fit: cover;
+    
+    /* Arredonda os cantos perfeitamente */
+    border-radius: 50%;
+    
+    /* Adiciona a borda roxa que você tem no seu print original */
+    border: 5px solid #8e44ad; /* Use a cor exata do seu projeto */
+    
+    /* Opcional: Centraliza a imagem se ela estiver desalinhada */
+    display: block;
+    margin: 0 auto;
     .hero-btns { flex-direction: column; width: 100%; }
 
 }
@@ -516,13 +555,10 @@ footer {
 /* Ajuste do Título da Seção */
 
 .section-title span {
-
     background: var(--main-gradient);
-
-    -webkit-background-clip: text;
-
+    -webkit-background-clip: text; /* Mantém essa linha */
+    background-clip: text;         /* ADICIONE ESTA LINHA AQUI */
     -webkit-text-fill-color: transparent;
-
 }
 
 
@@ -690,118 +726,8 @@ footer {
 
 }
 
-.card-art:hover .card-art-info {
-
+.card-art:hover .card-art-info 
+{
     bottom: 0;
-
 }
-/* Seção de Contato */
-#contato {
-    padding: 100px 0;
-    background-color: #0b0b0d; /* Fundo escuro igual ao restante do site */
-    color: #fff;
-}
-
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide em duas colunas no PC */
-    gap: 60px;
-    align-items: start;
-}
-
-/* Títulos e Textos */
-.contact-info h2.section-title {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.contact-info p {
-    color: #a1a1a1;
-    line-height: 1.6;
-}
-
-/* Ícones e Detalhes */
-.contact-details {
-    margin-top: 40px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.detail-item i {
-    font-size: 1.5rem;
-    color: #a855f7; /* Roxo principal */
-    background: rgba(168, 85, 247, 0.1);
-    padding: 12px;
-    border-radius: 10px;
-}
-
-.detail-item h3 {
-    font-size: 0.9rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.detail-item p {
-    color: #fff;
-    font-weight: 500;
-}
-
-/* Estilização do Formulário (O segredo para sair do branco) */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 16px;
-    background: #16161a; /* Fundo do input levemente mais claro que o geral */
-    border: 1px solid #2d2d30;
-    border-radius: 12px;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: #a855f7;
-    background: #1c1c21;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
-}
-
-/* O Botão Degradê da Imagem */
-.btn-filled {
-    background: linear-gradient(90deg, #8b5cf6, #d946ef);
-    color: #fff;
-    padding: 15px;
-    border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-filled:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
-}
-
-/* Responsividade para Celular */
-@media (max-width: 850px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr; /* Uma coluna só no mobile */
-        gap: 40px;
-    }
 }
