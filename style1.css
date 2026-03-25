@@ -183,24 +183,29 @@ body {
 
 /* --- AJUSTES EXCLUSIVOS PARA CELULAR (PRINT 2X2) --- */
 @media (max-width: 768px) {
+    /* Diminui o espaço após a barra de contato */
     .contato-topo-fixo {
-        display: flex;
-        justify-content: center; /* GARANTE A CENTRALIZAÇÃO NO CELULAR */
-        gap: 15px;               /* REDUZ O ESPAÇO PARA CABER NO PRINT */
-        padding: 12px 0;
-        margin-top: 0;
-        width: 100vw;
+        margin-bottom: 15px; /* Reduzido de 30px */
     }
 
-    .contato-topo-fixo a {
-        font-size: 0.8rem;
+    /* Diminui o espaço após a sua foto/texto de apresentação */
+    .apresentacao-cartaz {
+        margin-bottom: 15px; /* Reduzido de 40px */
+        gap: 10px;
+    }
+
+    /* Remove excesso de espaço no título da seção */
+    .section-title {
+        margin-top: 5px;   /* Quase encosta na apresentação */
+        margin-bottom: 15px; 
+        font-size: 1.4rem;
+    }
+
+    /* Tira o padding superior da seção de serviços */
+    .servicos-section {
+        padding-top: 0;
     }
 }
-
-    .section-title {
-        font-size: 1.6rem;
-    }
-
     .apresentacao-cartaz {
         flex-direction: row; /* FOTO À ESQUERDA NO CELULAR */
         gap: 15px;
@@ -219,32 +224,30 @@ body {
     }
 
     /* FORÇA O GRID 2X2 NO CELULAR */
+    @media (max-width: 768px) {
     .grid-servicos {
         grid-template-columns: 1fr 1fr; 
-        gap: 10px;
+        gap: 8px; /* Espaço mais apertado para economizar área */
     }
 
     .card-servico {
-    background: var(--card-bg);
-    padding: 25px;
-    border-radius: 20px;
-    
-    /* ALTERAÇÃO AQUI: De transparente para a cor primária */
-    border: 1px solid var(--primary-color); 
-    
-    text-align: left;
-    transition: 0.3s;
-}
+        padding: 10px; /* Padding bem reduzido para celular */
+    }
+
+    .card-servico i.main-icon {
+        font-size: 1.5rem; /* Ícone menor */
+    }
 
     .card-servico h3 {
-        font-size: 0.95rem;
+        font-size: 0.85rem; /* Título menor para evitar quebras de linha estranhas */
     }
 
     .card-servico p {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        margin-bottom: 8px;
     }
 
-    .lista-servicos li {
-        font-size: 0.65rem; 
-        gap: 5px;
+    .lista-servicos {
+        padding-top: 8px;
     }
+}
