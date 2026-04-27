@@ -1,846 +1,105 @@
-:root {
+/* --- AJUSTES GERAIS E CORREÇÕES --- */
 
-    /* Fundo e Base - Tons de roxo quase preto */
-
-    --bg-color: #0a080f;          
-
-    --card-bg: #13101c;          
-
-    --text-color: #e0dced;        
-
-    --white: #ffffff;
-
-   
-
-    /* Paleta Lilás Forte / Roxo */
-
-    --primary-color: #a855f7;      /* Lilás vibrante */
-
-    --secondary-color: #6b21a8;    /* Roxo profundo */
-
-    --accent-color: #d8b4fe;       /* Lilás claro para detalhes */
-
-   
-
-    /* Degradê para o Nome e Botões */
-
-    --main-gradient: linear-gradient(20deg, #a855f7, hsl(240, 69%, 71%), #9164df);
-
-    --font-main: 'Poppins', sans-serif;
-
-}
-
-
-
-* {
-
-    margin: 0;
-
-    padding: 0;
-
-    box-sizing: border-box;
-
-}
-
-
-
-body {
-
-    font-family: var(--font-main);
-
-    background-color: var(--bg-color);
-
-    color: var(--text-color);
-
-    scroll-behavior: smooth;
-
-}
-
-
-
-.container {
-
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    padding: 0 40px;
-
-}
-
-
-
-/* Navbar */
-
-.navbar {
-
-    padding: 25px 0;
-
-    position: fixed;
-
-    width: 100%;
-
-    top: 0;
-
-    background: rgba(18, 13, 13, 0.95);
-
-    z-index: 1000;
-
-}
-
-
-
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
-
-.logo { font-size: 1.5rem; font-weight: 700; color: var(--white); }
-
-.logo span { color: var(--primary-color); }
-
-.nav-links { display: flex; list-style: none; gap: 30px; }
-
-.nav-links a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: 0.3s; }
-
-.nav-links a:hover { color: var(--primary-color); }
-
-
-
-/* Hero Section */
-
-.hero {
-
-   width: 100%; /* Agora o fundo ocupa a tela toda */
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    /* O gradiente agora vai aparecer na tela inteira! */
-    background: radial-gradient(circle at 10% 30%, rgba(255, 77, 109, 0.1), transparent 40%);
-}
-
-.hero-layout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    width: 100%; /* Importante para o container funcionar direito */
-}
-
-.hero-content { flex: 1.2; }
-
-
-
-.role-tag {
-
-    background: rgba(255, 77, 109, 0.1);
-
-    border: 1px solid rgba(255, 77, 109, 0.3);
-
-    color: var(--primary-color);
-
-    padding: 8px 16px;
-
-    border-radius: 6px;
-
-    font-size: 0.85rem;
-
-    font-weight: 500;
-
-    display: inline-block;
-
-}
-
-
-
-/* DEGRADÊ NO NOME */
-
-.hero h1 {
-
-    font-size: 4rem;
-
-    margin: 20px 0;
-
-    line-height: 1.1;
-
+/* Unificando o efeito de texto em degradê para evitar repetição */
+.gradient-text {
     background: var(--main-gradient);
-
     -webkit-background-clip: text;
-    -webkit-background-clip: text; /* Para Chrome/Safari */
-     background-clip: text;         /* Versão padrão para outros navegadores */ /* Faz o degradê aparecer no texto */
-
-    -webkit-text-fill-color: transparent; /* Remove a cor sólida */
-
-    font-weight: 700;
-
-}
-
-
-
-.hero p {
-
-    font-size: 1.1rem;
-
-    color: #b5a4a4;
-
-    margin-bottom: 30px;
-
-    max-width: 500px;
-
-}
-
-
-
-.social-links {
-    display: flex;
-    gap: 25px;
-    margin-bottom: 30px;
-}
-
-.social-links a {
-    /* Troque o azul escuro pelo seu lilás principal */
-    color: var(--primary-color); 
-    font-size: 2rem; /* Aumenta um pouco para dar destaque */
-    text-decoration: none;
-    transition: 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-links a:hover {
-    /* No hover, eles brilham em branco ou lilás claro */
-    color: var(--white);
-    transform: translateY(-5px);
-    filter: drop-shadow(0 0 8px var(--primary-color));
-}
-
-/* Se quiser que o Instagram tenha o degradê dele no hover (opcional e estiloso) */
-.social-links a:hover i.bxl-instagram {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block; /* Garante que o fundo cubra apenas o texto */
 }
 
-
-
-.hero-btns { display: flex; gap: 15px; }
-
-
-
-.btn-filled {
-
-    background: var(--main-gradient);
-
-    color: var(--white);
-
-    padding: 12px 28px;
-
-    border-radius: 8px;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    transition: 0.3s;
-
-    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2);
-
+/* Melhoria no Hero para garantir que ocupe a tela toda corretamente */
+.hero {
+    width: 100%;
+    min-height: 100vh; /* min-height é mais seguro que height fixo */
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 10% 30%, rgba(168, 85, 247, 0.1), transparent 40%);
+    padding: 80px 0; /* Espaço para a navbar fixa */
 }
 
-
-
-.btn-filled:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.4);
-
-}
-
-
-
-.btn-outline {
-
-    border: 1px solid var(--primary-color);
-
-    padding: 12px 28px;
-
-    border-radius: 8px;
-
-    color: var(--primary-color);
-
-    text-decoration: none;
-
-    transition: 0.3s;
-
-}
-
-
-
-.btn-outline:hover {
-
-    background: rgba(255, 77, 109, 0.05);
-
-}
-
-
-
-.hero-image img {
-
-    width: 400px;
-
-    height: 400px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-
-    border: 5px solid var(--secondary-color); /* Borda em vinho profundo */
-
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-
-}
-
-
-
-/* Seção Portfólio */
-
-#portfolio { padding: 100px 40px; }
-
-.section-title { font-size: 2.5rem; text-align: center; margin-bottom: 60px; color: var(--white); }
-
-
-
-.grid-projects {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 30px;
-
-}
-
-
-
-.card {
-
-    background: var(--card-bg);
-
-    border-radius: 12px;
-
-    overflow: hidden;
-
-    transition: 0.3s;
-
-    border: 1px solid rgba(255, 255, 255, 0.05);
-
-}
-
-
-
-.card:hover {
-
-    transform: translateY(-10px);
-
-    border-color: var(--primary-color);
-
-}
-
-
-
-.card-img { height: 200px; background-size: cover; background-position: center; background-color: #2a1f1f; }
-
-
-
-.card-content { padding: 25px; }
-
-.card-content h3 { margin-bottom: 10px; color: var(--white); }
-
-.card-content p { color: #b5a4a4; font-size: 0.9rem; margin-bottom: 20px; }
-
-.link-projeto { color: var(--primary-color); text-decoration: none; font-weight: 600; }
-
-
-
-/* Footer */
-
-footer {
-
-    text-align: center;
-
-    padding: 60px 0;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-
-}
-
-
-
-.socials { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
-
-.socials a { color: #b5a4a4; text-decoration: none; font-size: 0.9rem; }
-
-
-
-/* CELULAR */
+/* --- CORREÇÃO DO MEDIA QUERY (Onde estava o erro de chaves) --- */
 @media (max-width: 768px) {
-    
     .hero {
-        height: auto; /* Deixa a altura livre para o conteúdo crescer verticalmente */
-        padding: 100px 0 50px 0; /* Espaço para não ficar colado na navbar fixa */
+        height: auto;
+        padding: 120px 0 50px 0;
     }
 
     .hero-layout {
-        flex-direction: column-reverse; /* Empilha os itens: Imagem em cima, texto embaixo */
-        text-align: center; /* Centraliza os textos e botões */
+        flex-direction: column-reverse;
+        text-align: center;
         gap: 30px;
     }
 
     .hero-content h1 {
-        font-size: 3rem; /* Ajuste esse valor como preferir (ex: 1.8rem, 2.5rem) */
-        line-height: 1.2; /* Melhora o espaçamento entre as linhas se o nome quebrar */
-        margin-bottom: 15px;
-        }
-    .hero-content {
-        flex: 1;
-        width: 100%;
-    }
-
-    .hero-btns {
-        justify-content: center; /* Centraliza os botões */
-        flex-direction: column; /* Botões um em cima do outro se forem grandes */
-        gap: 15px;
-    }
-
-    .social-links {
-        justify-content: center; /* Centraliza os ícones sociais */
+        font-size: 2.8rem;
+        line-height: 1.2;
     }
 
     .hero-image img {
-    /* Define um tamanho fixo e quadrado para a imagem */
-    width: 300px; /* Ajuste esse valor conforme necessário para o tamanho que deseja */
-    height: 300px; /* Deve ser o mesmo valor que a largura */
-    
-    /* Faz com que a imagem preencha o quadrado sem distorcer, cortando as sobras */
-    object-fit: cover;
-    
-    /* Arredonda os cantos perfeitamente */
-    border-radius: 50%;
-    
-    /* Adiciona a borda roxa que você tem no seu print original */
-    border: 5px solid #8e44ad; /* Use a cor exata do seu projeto */
-    
-    /* Opcional: Centraliza a imagem se ela estiver desalinhada */
-    display: block;
-    margin: 0 auto;
-    .hero-btns { flex-direction: column; width: 100%; }
+        width: 250px; /* Reduzi um pouco para telas pequenas */
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid var(--primary-color);
+        display: block;
+        margin: 0 auto;
+    } /* FECHAMENTO CORRETO AQUI */
 
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .btn-filled, .btn-outline {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
 }
 
-
-
-/* Configurações específicas da Galeria */
-
-.bg-galeria {
-
-    background-color: var(--bg-color);
-
-}
-
-
-
-.galeria-section {
-
-    padding-top: 120px;
-
-    padding-bottom: 60px;
-
-}
-
-
-
-.btn-back {
-
-    color: var(--primary-color);
-
-    font-weight: 600;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 5px;
-
-}
-
-
-
-.grid-galeria {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 30px;
-
-    margin-top: 40px;
-
-}
-
-
-
-/* O Card igual ao da sua imagem */
-
+/* --- MELHORIA NOS CARDS DE ARTES --- */
 .card-art {
-
-    background: #13101c; /* Tom de roxo bem escuro */
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(168, 85, 247, 0.1);
-
-    transition: 0.3s ease;
-
-}
-
-
-
-.card-art:hover {
-
-    transform: translateY(-10px);
-
-    border-color: var(--primary-color);
-
-    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
-
-}
-
-
-
-.card-img-wrapper {
-
-    width: 100%;
-
-    height: 250px;
-
-    overflow: hidden;
-
-    background: #000; /* Fundo preto para logos com transparência */
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-
-.card-img-wrapper img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain; /* Garante que o logo não seja cortado */
-
-    padding: 20px;
-
-}
-
-
-
-.card-art-info {
-
-    padding: 25px;
-
-}
-
-
-.card-art-info h3 {
-
-    color: var(--white);
-
-    font-size: 1.2rem;
-
-    margin-bottom: 8px;
-
-}
-
-
-.card-art-info p {
-
-    color: #b5a4a4;
-
-    font-size: 0.9rem;
-
-}
-
-
-/* Ajuste do Título da Seção */
-
-.section-title span {
-    background: var(--main-gradient);
-    -webkit-background-clip: text; /* Mantém essa linha */
-    background-clip: text;         /* ADICIONE ESTA LINHA AQUI */
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* Estilizando o link dentro do card de projeto */
-
-.link-projeto {
-
-    color: var(--primary-color);
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    font-size: 0.95rem;
-
-    display: inline-block;
-
-    position: relative;
-
-    transition: 0.3s;
-
-}
-
-
-.link-projeto:hover {
-
-    letter-spacing: 1px; /* Dá um leve espaçamento ao passar o mouse */
-
-    color: var(--accent-color);
-
-}
-
-
-/* Opcional: Efeito de hover na imagem do card */
-
-.card-art:hover .card-img-wrapper img {
-
-    transform: scale(1.1); /* Zoom suave na arte ao passar o mouse */
-
-    transition: 0.5s ease;
-
-}
-
-/* Isso garante que o link tenha a mesma cor, antes e depois de clicado */
-
-.link-projeto,
-
-.link-projeto:visited {
-
-    color: var(--primary-color) !important; /* Usa o seu lilás vibrante */
-
-    text-decoration: none;
-
-    transition: 0.3s;
-
-}
-
-
-
-/* Mantém o destaque quando você passa o mouse */
-
-.link-projeto:hover {
-
-    color: var(--accent-color) !important; /* O lilás mais claro que definimos */
-
-    letter-spacing: 1px;
-}
-
-
-
-.grid-galeria {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-
-    gap: 20px; /* Um pequeno espaço entre elas fica mais elegante para artes variadas */
-
-    padding: 20px;
-
-}
-
-
-.card-art {
-
-    background: #1a1625; /* Um roxo bem profundo para destacar as artes coloridas */
-
-    border-radius: 15px; /* Arredondado sutil combina com o estilo das canecas e flyers */
-
-    overflow: hidden;
-
-    border: 1px solid rgba(168, 85, 247, 0.2);
-
-}
-
-
-/* Ajuste para Galeria Estética */
-
-.grid-galeria {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-
-    gap: 25px; /* Espaço entre as artes para não embolar */
-
-    padding: 40px 0;
-
-}
-
-.card-art {
-
     background: var(--card-bg);
-
-    border-radius: 15px; /* Deixa o visual mais moderno e suave */
-
+    border-radius: 15px;
     overflow: hidden;
-
     position: relative;
-
     height: 400px;
-
     border: 1px solid rgba(168, 85, 247, 0.1);
-
-    transition: transform 0.4s ease;
-
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform;
 }
 
 .card-art img {
-
     width: 100%;
-
     height: 100%;
-
-    object-fit: cover; /* Garante que as fotos preencham o espaço sem distorcer */
-
-    transition: 0.5s ease;
-
+    object-fit: cover;
+    transition: 0.6s ease;
 }
 
 .card-art:hover img {
-
-    transform: scale(1.1) rotate(1deg); /* Leve giro e zoom no hover */
-
-    filter: brightness(0.6);
-
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(0.4);
 }
-
 
 .card-art-info {
-
     position: absolute;
-
     bottom: -100%;
-
     left: 0;
-
     width: 100%;
-
-    background: linear-gradient(transparent, rgba(19, 16, 28, 0.95));
-
+    background: linear-gradient(to top, rgba(10, 8, 15, 0.95), transparent);
     padding: 25px;
-
-    transition: 0.4s ease;
-
+    transition: 0.4s ease-in-out;
 }
 
-.card-art:hover .card-art-info 
-{
+.card-art:hover .card-art-info {
     bottom: 0;
 }
-}
-/* --- SEÇÃO DE CONTATO CLEAN --- */
-.contato-clean {
-    padding: 80px 0;
-    text-align: center;
-}
 
-.contato-box {
-    background: var(--card-bg);
-    padding: 50px 30px;
-    border-radius: 25px;
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.contato-box h2 {
-    font-size: 2.2rem;
-    color: var(--white);
-    margin-bottom: 15px;
-}
-
-.contato-box p {
-    color: #b5a4a4;
-    margin-bottom: 35px;
-    font-size: 1.1rem;
-}
-
-/* Container dos Botões */
-.botoes-contato {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Garante que no celular um fique embaixo do outro se necessário */
-}
-
-/* Estilo Base dos Botões */
-.btn-contato {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 35px;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: 0.3s ease;
-}
-
-/* Cores específicas */
-.btn-contato.whatsapp {
-    background-color: #25d366;
-    color: #fff;
-}
-
-.btn-contato.email {
-    background: var(--main-gradient);
-    color: var(--white);
-}
-
-.btn-contato:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    filter: brightness(1.1);
-}
-
-/* --- AJUSTE MOBILE --- */
-@media (max-width: 768px) {
-    .contato-box {
-        padding: 35px 20px;
-        margin: 0 15px;
-    }
-
-    .contato-box h2 {
-        font-size: 1.6rem;
-    }
-
-    .botoes-contato {
-        flex-direction: column; /* Botões um sobre o outro no celular */
-    }
-
-    .btn-contato {
-        justify-content: center;
-        width: 100%;
-    }
+/* --- BOTÕES DE CONTATO (Ajuste de contraste) --- */
+.btn-contato.whatsapp:hover {
+    background-color: #1eb954; /* Um verde levemente mais escuro no hover */
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
 }
