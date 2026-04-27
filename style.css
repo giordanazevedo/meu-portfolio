@@ -1,87 +1,114 @@
-/* --- AJUSTES GERAIS E CORREÇÕES --- */
+:root {
+    --bg-color: #0a080f;          
+    --card-bg: #13101c;          
+    --text-color: #e0dced;        
+    --white: #ffffff;
+    --primary-color: #a855f7;      
+    --secondary-color: #6b21a8;    
+    --accent-color: #d8b4fe;       
+    --main-gradient: linear-gradient(20deg, #a855f7, #9164df, #d8b4fe);
+    --font-main: 'Poppins', sans-serif;
+}
 
-/* Unificando o efeito de texto em degradê para evitar repetição */
-.gradient-text {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(10, 8, 15, 0.95);
+    z-index: 1000;
+}
+
+.nav-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: var(--white); 
+    text-decoration: none;
+}
+
+.logo span { color: var(--primary-color); }
+
+.btn-back {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.btn-back:hover { color: var(--white); }
+
+/* --- SEÇÃO GALERIA --- */
+.bg-galeria { background-color: var(--bg-color); }
+
+.galeria-section {
+    padding: 120px 0 60px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--white);
+}
+
+.section-title span {
     background: var(--main-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block; /* Garante que o fundo cubra apenas o texto */
 }
 
-/* Melhoria no Hero para garantir que ocupe a tela toda corretamente */
-.hero {
-    width: 100%;
-    min-height: 100vh; /* min-height é mais seguro que height fixo */
-    display: flex;
-    align-items: center;
-    background: radial-gradient(circle at 10% 30%, rgba(168, 85, 247, 0.1), transparent 40%);
-    padding: 80px 0; /* Espaço para a navbar fixa */
+/* --- GRID E CARDS --- */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
-/* --- CORREÇÃO DO MEDIA QUERY (Onde estava o erro de chaves) --- */
-@media (max-width: 768px) {
-    .hero {
-        height: auto;
-        padding: 120px 0 50px 0;
-    }
-
-    .hero-layout {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.8rem;
-        line-height: 1.2;
-    }
-
-    .hero-image img {
-        width: 250px; /* Reduzi um pouco para telas pequenas */
-        height: 250px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 5px solid var(--primary-color);
-        display: block;
-        margin: 0 auto;
-    } /* FECHAMENTO CORRETO AQUI */
-
-    .hero-btns {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
-
-    .btn-filled, .btn-outline {
-        width: 100%;
-        max-width: 300px;
-        text-align: center;
-    }
-}
-
-/* --- MELHORIA NOS CARDS DE ARTES --- */
 .card-art {
     background: var(--card-bg);
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    height: 400px;
+    height: 380px;
     border: 1px solid rgba(168, 85, 247, 0.1);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    will-change: transform;
+    transition: 0.4s ease;
 }
 
 .card-art img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.6s ease;
-}
-
-.card-art:hover img {
-    transform: scale(1.1) rotate(2deg);
-    filter: brightness(0.4);
+    transition: 0.5s ease;
 }
 
 .card-art-info {
@@ -89,17 +116,31 @@
     bottom: -100%;
     left: 0;
     width: 100%;
-    background: linear-gradient(to top, rgba(10, 8, 15, 0.95), transparent);
+    background: linear-gradient(transparent, rgba(19, 16, 28, 0.98));
     padding: 25px;
-    transition: 0.4s ease-in-out;
+    transition: 0.4s ease;
+}
+
+.card-art:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.card-art:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.5);
 }
 
 .card-art:hover .card-art-info {
     bottom: 0;
 }
 
-/* --- BOTÕES DE CONTATO (Ajuste de contraste) --- */
-.btn-contato.whatsapp:hover {
-    background-color: #1eb954; /* Um verde levemente mais escuro no hover */
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+.card-art-info h3 { color: var(--white); margin-bottom: 5px; }
+.card-art-info p { color: #b5a4a4; font-size: 0.9rem; }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .section-title { font-size: 2rem; }
+    .grid-galeria { grid-template-columns: 1fr; padding: 0 10px; }
+    .card-art { height: 320px; }
 }
