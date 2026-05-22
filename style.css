@@ -1017,6 +1017,49 @@ footer {
     z-index: 10;
 }
 
+/* O Tablet Realista (quando ativado) */
+.phone-mockup.tablet-mockup {
+    width: 420px;
+    height: 560px;
+    border-radius: 24px;
+    border-width: 14px;
+}
+
+.phone-mockup.tablet-mockup::before {
+    border-radius: 24px;
+    border-width: 1px;
+    top: -14px; left: -14px; right: -14px; bottom: -14px;
+}
+
+/* Hide notch and speaker on tablet */
+.phone-mockup.tablet-mockup .phone-notch,
+.phone-mockup.tablet-mockup .phone-speaker {
+    display: none;
+}
+
+/* Add a subtle camera dot for tablet instead */
+.phone-mockup.tablet-mockup::after {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+    z-index: 25;
+}
+
+.phone-mockup.tablet-mockup .phone-screen {
+    border-radius: 12px;
+}
+
+.phone-mockup.tablet-mockup .phone-screen video,
+.phone-mockup.tablet-mockup .phone-screen img {
+    border-radius: 12px;
+}
+
 /* Notch / Ilha Dinâmica */
 .phone-notch {
     position: absolute;
@@ -1146,6 +1189,11 @@ footer {
     .phone-mockup {
         width: 250px;
         height: 510px;
+    }
+    
+    .phone-mockup.tablet-mockup {
+        width: 290px;
+        height: 387px;
     }
 }
 

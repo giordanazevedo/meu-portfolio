@@ -130,7 +130,7 @@
 
                 <!-- Coluna do Mockup de Smartphone -->
                 <div class="app-visual">
-                    <div class="phone-mockup">
+                    <div class="phone-mockup" id="app-device-mockup">
                         <div class="phone-speaker"></div>
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
@@ -200,7 +200,8 @@
                 techs: ["React Native", "Expo", "TypeScript", "Async Storage"],
                 video: "gincana-demo.mp4",
                 image: "projeto1.jpg",
-                github: "https://github.com/giordanazevedo"
+                github: "https://github.com/giordanazevedo",
+                deviceType: "phone"
             },
             lume: {
                 tag: "React Native & Supabase",
@@ -215,7 +216,8 @@
                 techs: ["React Native", "Expo", "Supabase", "TypeScript", "Push Notifications"],
                 video: "lume-demo.mp4",
                 image: "projeto2.jpg",
-                github: "https://github.com/giordanazevedo"
+                github: "https://github.com/giordanazevedo",
+                deviceType: "tablet"
             }
         };
 
@@ -226,6 +228,14 @@
 
             const data = appData[appKey];
             const infoContainer = document.getElementById('app-info-container');
+            const mockupEl = document.getElementById('app-device-mockup');
+
+            // Alterna classe de tablet/celular
+            if (data.deviceType === 'tablet') {
+                mockupEl.classList.add('tablet-mockup');
+            } else {
+                mockupEl.classList.remove('tablet-mockup');
+            }
 
             infoContainer.style.opacity = 0;
             infoContainer.style.transform = 'translateY(10px)';
