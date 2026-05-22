@@ -83,71 +83,61 @@
     </section>
 
     <section id="aplicativos" class="apps-section container">
-        <h2 class="section-title">Aplicativos <span>Desenvolvidos</span></h2>
+        <h2 class="section-title">Aplicativo <span>Desenvolvido</span></h2>
 
         <div class="apps-showcase">
-            <div class="apps-tabs">
-                <button class="tab-btn active" onclick="switchApp('gincana')">Gincana DBV</button>
-                <button class="tab-btn" onclick="switchApp('lume')">LUME</button>
-            </div>
-
             <div class="app-display-container">
                 <!-- Coluna de Informações do App -->
                 <div class="app-info" id="app-info-container">
                     <div class="app-text-content">
-                        <span class="role-tag app-tag">Expo & React Native</span>
-                        <h3 class="app-name">Gincana DBV</h3>
-                        <p class="app-description">Um aplicativo gamificado interativo para gincanas de desbravadores.
-                            Conta com placar em tempo real para os times Leão e Urso, missões com pontuação automática e
-                            design dinâmico inspirado em "Fogo & Trovão".</p>
+                        <span class="role-tag app-tag">React Native & Supabase</span>
+                        <h3 class="app-name">LUME App</h3>
+                        <p class="app-description">Um assistente pessoal moderno e completo focado em desenvolvimento individual.
+                            Possui suporte a notificações locais para lembrete de datas importantes, banco de dados Supabase na nuvem e
+                            fluxo seguro de redefinição de senha.</p>
 
                         <div class="app-features">
                             <h4>Principais Recursos:</h4>
                             <ul>
-                                <li><i class='bx bx-check-circle'></i> Placar e classificação em tempo real dos times
-                                </li>
-                                <li><i class='bx bx-check-circle'></i> Missões dinâmicas com verificação de progresso
-                                </li>
-                                <li><i class='bx bx-check-circle'></i> Temática interativa de times (Leão vs Urso)</li>
-                                <li><i class='bx bx-check-circle'></i> Persistência local de progresso e estado do jogo
-                                </li>
+                                <li><i class='bx bx-check-circle'></i> Gerenciador de datas importantes (NovoDiaImportante)</li>
+                                <li><i class='bx bx-check-circle'></i> Notificações locais programadas de lembrete</li>
+                                <li><i class='bx bx-check-circle'></i> Autenticação e sincronização com Supabase</li>
+                                <li><i class='bx bx-check-circle'></i> Fluxo de recuperação de senha por e-mail/deep link</li>
                             </ul>
                         </div>
 
                         <div class="app-tech-list">
                             <span class="tech-badge">React Native</span>
                             <span class="tech-badge">Expo</span>
+                            <span class="tech-badge">Supabase</span>
                             <span class="tech-badge">TypeScript</span>
-                            <span class="tech-badge">Async Storage</span>
+                            <span class="tech-badge">Push Notifications</span>
                         </div>
 
                         <div class="app-actions">
-                            <a href="https://github.com/giordanazevedo" target="_blank" class="btn-filled">VER
-                                CÓDIGO</a>
+                            <a href="https://github.com/giordanazevedo" target="_blank" class="btn-filled">VER CÓDIGO</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Coluna do Mockup de Smartphone -->
+                <!-- Coluna do Mockup de Tablet -->
                 <div class="app-visual">
-                    <div class="phone-mockup" id="app-device-mockup">
+                    <div class="phone-mockup tablet-mockup" id="app-device-mockup">
                         <div class="phone-speaker"></div>
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
                             <!-- Elemento de Vídeo Autoplay -->
                             <video id="app-video" autoplay loop muted playsinline>
-                                <source src="gincana-demo.mp4" type="video/mp4">
+                                <source src="lume-demo.mp4" type="video/mp4">
                             </video>
-                            <!-- Elemento de Imagem de Fallback caso o usuário prefira imagem -->
-                            <img id="app-image" src="projeto1.jpg" alt="Demonstração do App" style="display: none;">
+                            <!-- Elemento de Imagem de Fallback -->
+                            <img id="app-image" src="projeto2.jpg" alt="Demonstração do App" style="display: none;">
                         </div>
                         <div class="phone-home-button"></div>
                     </div>
                     <div class="media-tip">
                         <i class='bx bx-info-circle'></i>
-                        <span>Coloque <b>gincana-demo.mp4</b> ou <b>lume-demo.mp4</b> na pasta do projeto para ver a
-                            demonstração no celular! Se preferir, coloque uma imagem com esses mesmos nomes (ou formato
-                            PNG) e ela aparecerá automaticamente.</span>
+                        <span>O vídeo de demonstração do aplicativo (<b>lume-demo.mp4</b>) é carregado automaticamente. Caso prefira usar imagem de demonstração, utilize <b>projeto2.jpg</b>!</span>
                     </div>
                 </div>
             </div>
@@ -186,123 +176,13 @@
     </footer>
 
     <script>
-        const appData = {
-            gincana: {
-                tag: "Expo & React Native",
-                name: "Gincana DBV",
-                description: "Um aplicativo gamificado interativo para gincanas de desbravadores. Conta com placar em tempo real para os times Leão e Urso, missões com pontuação automática e design dinâmico inspirado em 'Fogo & Trovão'.",
-                features: [
-                    "Placar e classificação em tempo real dos times",
-                    "Missões dinâmicas com verificação de progresso",
-                    "Temática interativa de times (Leão vs Urso)",
-                    "Persistência local de progresso e estado do jogo"
-                ],
-                techs: ["React Native", "Expo", "TypeScript", "Async Storage"],
-                video: "gincana-demo.mp4",
-                image: "projeto1.jpg",
-                github: "https://github.com/giordanazevedo",
-                deviceType: "phone"
-            },
-            lume: {
-                tag: "React Native & Supabase",
-                name: "LUME App",
-                description: "Um assistente pessoal moderno e completo focado em desenvolvimento individual. Possui suporte a notificações locais para lembrete de datas importantes, banco de dados Supabase na nuvem e fluxo seguro de redefinição de senha.",
-                features: [
-                    "Gerenciador de datas importantes (NovoDiaImportante)",
-                    "Notificações locais programadas de lembrete",
-                    "Autenticação e sincronização com Supabase",
-                    "Fluxo de recuperação de senha por e-mail/deep link"
-                ],
-                techs: ["React Native", "Expo", "Supabase", "TypeScript", "Push Notifications"],
-                video: "lume-demo.mp4",
-                image: "projeto2.jpg",
-                github: "https://github.com/giordanazevedo",
-                deviceType: "tablet"
-            }
-        };
-
-        function switchApp(appKey) {
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-
-            const data = appData[appKey];
-            const infoContainer = document.getElementById('app-info-container');
-            const mockupEl = document.getElementById('app-device-mockup');
-
-            // Alterna classe de tablet/celular
-            if (data.deviceType === 'tablet') {
-                mockupEl.classList.add('tablet-mockup');
-            } else {
-                mockupEl.classList.remove('tablet-mockup');
-            }
-
-            infoContainer.style.opacity = 0;
-            infoContainer.style.transform = 'translateY(10px)';
-
-            setTimeout(() => {
-                infoContainer.querySelector('.app-tag').textContent = data.tag;
-                infoContainer.querySelector('.app-name').textContent = data.name;
-                infoContainer.querySelector('.app-description').textContent = data.description;
-
-                const featuresList = infoContainer.querySelector('.app-features ul');
-                featuresList.innerHTML = '';
-                data.features.forEach(feat => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<i class='bx bx-check-circle'></i> ${feat}`;
-                    featuresList.appendChild(li);
-                });
-
-                const techContainer = infoContainer.querySelector('.app-tech-list');
-                techContainer.innerHTML = '';
-                data.techs.forEach(tech => {
-                    const span = document.createElement('span');
-                    span.className = 'tech-badge';
-                    span.textContent = tech;
-                    techContainer.appendChild(span);
-                });
-
-                infoContainer.querySelector('.app-actions a').href = data.github;
-
-                const videoEl = document.getElementById('app-video');
-                const imageEl = document.getElementById('app-image');
-
-                // Attempt to set video source
-                const videoSource = videoEl.querySelector('source');
-                videoSource.src = data.video;
-                videoEl.load();
-
-                videoEl.onerror = () => {
-                    videoEl.style.display = 'none';
-                    imageEl.src = data.image;
-                    imageEl.style.display = 'block';
-                };
-
-                const playPromise = videoEl.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        videoEl.style.display = 'block';
-                        imageEl.style.display = 'none';
-                    }).catch(error => {
-                        console.log("Video not ready, falling back to image.");
-                        videoEl.style.display = 'none';
-                        imageEl.src = data.image;
-                        imageEl.style.display = 'block';
-                    });
-                }
-
-                infoContainer.style.opacity = 1;
-                infoContainer.style.transform = 'translateY(0)';
-            }, 300);
-        }
-
         window.addEventListener('DOMContentLoaded', () => {
             const videoEl = document.getElementById('app-video');
             const imageEl = document.getElementById('app-image');
 
             videoEl.onerror = () => {
                 videoEl.style.display = 'none';
-                imageEl.src = appData.gincana.image;
+                imageEl.src = "projeto2.jpg";
                 imageEl.style.display = 'block';
             };
 
@@ -310,7 +190,7 @@
             if (playPromise !== undefined) {
                 playPromise.catch(() => {
                     videoEl.style.display = 'none';
-                    imageEl.src = appData.gincana.image;
+                    imageEl.src = "projeto2.jpg";
                     imageEl.style.display = 'block';
                 });
             }
