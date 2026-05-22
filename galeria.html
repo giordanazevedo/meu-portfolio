@@ -21,8 +21,16 @@
         <div class="container">
             <h1 class="section-title">Minha Galeria de <span>Artes</span></h1>
             
+            <!-- Barra de Filtros -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="estampas">Estampas & Canecas</button>
+                <button class="filter-btn" data-filter="branding">Identidade Visual</button>
+                <button class="filter-btn" data-filter="social-media">Social Media</button>
+            </div>
+
             <div class="grid-galeria">
-            <div class="card-art">
+                <div class="card-art" data-category="estampas">
                     <img src="camiseta-avante.jpg" alt="Camiseta Sempre Avante">
                     <div class="card-art-info">
                         <h3>Sempre Avante</h3>
@@ -30,8 +38,7 @@
                     </div>
                 </div>  
                 
-
-                     <div class="card-art">
+                <div class="card-art" data-category="estampas">
                     <img src="camiseta-cha.jpg" alt="Chá das Amigas">
                     <div class="card-art-info">
                         <h3>Chá das Amigas</h3>
@@ -39,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="card-art">
+                <div class="card-art" data-category="estampas">
                     <img src="camiseta-caminhada.jpg" alt="Caminhada do Bem">
                     <div class="card-art-info">
                         <h3>Caminhada do Bem</h3>
@@ -47,7 +54,7 @@
                     </div>
                 </div>
                 
-                <div class="card-art">
+                <div class="card-art" data-category="branding">
                     <img src="mockup-livtech.jpg" alt="Livtech Branding">
                     <div class="card-art-info">
                         <h3>Livtech Branding</h3>
@@ -55,9 +62,7 @@
                     </div>
                 </div>
 
-               
-
-                <div class="card-art">
+                <div class="card-art" data-category="estampas">
                     <img src="canecas-hp.jpg" alt="Canecas Harry Potter">
                     <div class="card-art-info">
                         <h3>Coleção Hogwarts</h3>
@@ -65,19 +70,71 @@
                     </div>
                 </div>
 
-
-                <div class="card-art">
+                <div class="card-art" data-category="social-media">
                     <img src="posts-igreja.jpg" alt="Social Media IASD">
                     <div class="card-art-info">
                         <h3>Social Media IASD</h3>
                         <p>Posts e Convites</p>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryCards = document.querySelectorAll('.card-art');
+
+            function applyFilter(category) {
+                // Atualiza estado do botão ativo
+                filterBtns.forEach(btn => {
+                    if (btn.getAttribute('data-filter') === category) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Filtra os cartões com animação suave
+                galleryCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+
+            // Ouvinte de clique nos botões
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const category = e.target.getAttribute('data-filter');
+                    applyFilter(category);
+                });
+            });
+
+            // Adiciona transição CSS inicial suave
+            galleryCards.forEach(card => {
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease, border-color 0.4s ease, box-shadow 0.4s ease';
+            });
+
+            // Lê parâmetro de categoria da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialFilter = urlParams.get('filter');
+            if (initialFilter) {
+                applyFilter(initialFilter);
+            }
+        });
+    </script>
 </body>
 </html>
