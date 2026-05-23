@@ -15,7 +15,10 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">GL<span>.</span></div>
-            <ul class="nav-links">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                <i class='bx bx-menu'></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#portfolio">Portfólio</a></li>
                 <li><a href="servicos.html">Serviços</a></li>
@@ -98,17 +101,21 @@
                     <div class="app-text-content">
                         <span class="role-tag app-tag">React Native & Supabase</span>
                         <h3 class="app-name">LUME App</h3>
-                        <p class="app-description">Um assistente pessoal moderno e completo focado em desenvolvimento individual.
-                            Possui suporte a notificações locais para lembrete de datas importantes, banco de dados Supabase na nuvem e
+                        <p class="app-description">Um assistente pessoal moderno e completo focado em desenvolvimento
+                            individual.
+                            Possui suporte a notificações locais para lembrete de datas importantes, banco de dados
+                            Supabase na nuvem e
                             fluxo seguro de redefinição de senha.</p>
 
                         <div class="app-features">
                             <h4>Principais Recursos:</h4>
                             <ul>
-                                <li><i class='bx bx-check-circle'></i> Gerenciador de datas importantes (NovoDiaImportante)</li>
+                                <li><i class='bx bx-check-circle'></i> Gerenciador de datas importantes
+                                    (NovoDiaImportante)</li>
                                 <li><i class='bx bx-check-circle'></i> Notificações locais programadas de lembrete</li>
                                 <li><i class='bx bx-check-circle'></i> Autenticação e sincronização com Supabase</li>
-                                <li><i class='bx bx-check-circle'></i> Fluxo de recuperação de senha por e-mail/deep link</li>
+                                <li><i class='bx bx-check-circle'></i> Fluxo de recuperação de senha por e-mail/deep
+                                    link</li>
                             </ul>
                         </div>
 
@@ -121,7 +128,8 @@
                         </div>
 
                         <div class="app-actions">
-                            <a href="https://github.com/giordanazevedo" target="_blank" class="btn-filled">VER CÓDIGO</a>
+                            <a href="https://github.com/giordanazevedo" target="_blank" class="btn-filled">VER
+                                CÓDIGO</a>
                         </div>
                     </div>
                 </div>
@@ -143,7 +151,8 @@
                     </div>
                     <div class="media-tip">
                         <i class='bx bx-info-circle'></i>
-                        <span>O vídeo de demonstração do aplicativo (<b>lume-demo.mp4</b>) é carregado automaticamente. Caso prefira usar imagem de demonstração, utilize <b>projeto2.jpg</b>!</span>
+                        <span>O vídeo de demonstração do aplicativo (<b>lume-demo.mp4</b>) é carregado automaticamente.
+                            Caso prefira usar imagem de demonstração, utilize <b>projeto2.jpg</b>!</span>
                     </div>
                 </div>
             </div>
@@ -186,18 +195,45 @@
             const videoEl = document.getElementById('app-video');
             const imageEl = document.getElementById('app-image');
 
-            videoEl.onerror = () => {
-                videoEl.style.display = 'none';
-                imageEl.src = "projeto2.jpg";
-                imageEl.style.display = 'block';
-            };
-
-            const playPromise = videoEl.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
+            if (videoEl && imageEl) {
+                videoEl.onerror = () => {
                     videoEl.style.display = 'none';
                     imageEl.src = "projeto2.jpg";
                     imageEl.style.display = 'block';
+                };
+
+                const playPromise = videoEl.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        videoEl.style.display = 'none';
+                        imageEl.src = "projeto2.jpg";
+                        imageEl.style.display = 'block';
+                    });
+                }
+            }
+
+            // Mobile Navigation Toggle
+            const toggleBtn = document.getElementById('nav-toggle');
+            const navLinks = document.getElementById('nav-links');
+
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    const icon = toggleBtn.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.className = 'bx bx-x';
+                    } else {
+                        icon.className = 'bx bx-menu';
+                    }
+                });
+
+                // Close menu when clicking a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        const icon = toggleBtn.querySelector('i');
+                        if (icon) icon.className = 'bx bx-menu';
+                    });
                 });
             }
         });

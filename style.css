@@ -73,22 +73,17 @@ body {
 /* Navbar */
 
 .navbar {
-
-    padding: 25px 0;
-
+    padding: 20px 0;
     position: fixed;
-
     width: 100%;
-
     top: 0;
-
-    background: rgba(18, 13, 13, 0.95);
-
+    background: rgba(10, 8, 15, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1000;
-
+    transition: all 0.3s ease;
 }
-
-
 
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 
@@ -101,6 +96,21 @@ body {
 .nav-links a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: 0.3s; }
 
 .nav-links a:hover { color: var(--primary-color); }
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: 0.3s ease;
+}
+
+.nav-toggle:hover {
+    color: var(--primary-color);
+}
 
 
 
@@ -386,7 +396,7 @@ footer {
     
     .hero {
         height: auto; /* Deixa a altura livre para o conteúdo crescer verticalmente */
-        padding: 100px 0 50px 0; /* Espaço para não ficar colado na navbar fixa */
+        padding: 130px 0 50px 0; /* Espaço para não ficar colado na navbar fixa */
     }
 
     .hero-layout {
@@ -409,6 +419,7 @@ footer {
         justify-content: center; /* Centraliza os botões */
         flex-direction: column; /* Botões um em cima do outro se forem grandes */
         gap: 15px;
+        width: 100%;
     }
 
     .social-links {
@@ -416,24 +427,57 @@ footer {
     }
 
     .hero-image img {
-    /* Define um tamanho fixo e quadrado para a imagem */
-    width: 300px; /* Ajuste esse valor conforme necessário para o tamanho que deseja */
-    height: 300px; /* Deve ser o mesmo valor que a largura */
-    
-    /* Faz com que a imagem preencha o quadrado sem distorcer, cortando as sobras */
-    object-fit: cover;
-    
-    /* Arredonda os cantos perfeitamente */
-    border-radius: 50%;
-    
-    /* Adiciona a borda roxa que você tem no seu print original */
-    border: 5px solid #8e44ad; /* Use a cor exata do seu projeto */
-    
-    /* Opcional: Centraliza a imagem se ela estiver desalinhada */
-    display: block;
-    margin: 0 auto;
-    .hero-btns { flex-direction: column; width: 100%; }
+        /* Define um tamanho fixo e quadrado para a imagem */
+        width: 300px; /* Ajuste esse valor conforme necessário para o tamanho que deseja */
+        height: 300px; /* Deve ser o mesmo valor que a largura */
+        
+        /* Faz com que a imagem preencha o quadrado sem distorcer, cortando as sobras */
+        object-fit: cover;
+        
+        /* Arredonda os cantos perfeitamente */
+        border-radius: 50%;
+        
+        /* Adiciona a borda roxa que você tem no seu print original */
+        border: 5px solid #8e44ad; /* Use a cor exata do seu projeto */
+        
+        /* Opcional: Centraliza a imagem se ela estiver desalinhada */
+        display: block;
+        margin: 0 auto;
+    }
 
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: rgba(15, 12, 22, 0.98);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: center;
+        display: block;
+        padding: 10px 0;
+    }
 }
 
 
