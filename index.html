@@ -60,34 +60,69 @@
         </div>
     </header>
 
+    <section id="sobre" class="container about-section">
+        <h2 class="section-title">Sobre mim</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Sou Giordana Livia, desenvolvedora Full-Stack apaixonada por transformar ideias complexas em
+                    soluções digitais elegantes e funcionais. Trabalho com front-end e back-end, integração com APIs
+                    e deploys em nuvem.</p>
+                <p>Este portfólio reúne projetos reais — de sites institucionais a sistemas web integrados com
+                    planilhas e APIs. Navegue para ver detalhes e entrar em contato.</p>
+            </div>
+            <div class="about-image">
+                <img src="minha-foto.png" alt="Foto de Giordana Livia">
+            </div>
+        </div>
+    </section>
+
     <section id="portfolio" class="container">
         <h2 class="section-title">Meus Projetos</h2>
-        <div class="grid-projects">
-            <div class="card">
-                <div class="card-img" style="background-image: url('projeto1.jpg');"></div>
-                <div class="card-content">
+        <div class="projects-list">
+            <article class="project-block">
+                <div class="project-image" style="background-image: url('projeto1.jpg');"></div>
+                <div class="project-content">
+                    <span class="role-tag">Desenvolvimento Web</span>
                     <h3>Site Institucional IASD</h3>
                     <p>Desenvolvimento Web | PHP & MySQL</p>
-                    <a href="https://iasdangelim4.github.io/adventista/" target="_blank" class="link-projeto">Ver
-                        Detalhes →</a>
+                    <p>Site institucional criado para fortalecer a presença online da comunidade, com navegação responsiva, informações claras e design moderno.</p>
+                    <a href="https://iasdangelim4.github.io/adventista/" target="_blank" class="link-projeto">Ver Detalhes →</a>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('projeto2.jpg');"></div>
-                <div class="card-content">
+            </article>
+            <article class="project-block project-vertical">
+                <div class="project-image" style="background-image: url('projeto-sinte-pi.jpg');"></div>
+                <div class="project-content">
+                    <span class="role-tag">Python • Flask • Google Sheets API</span>
+                    <h3>Sistema de Busca SINTE-PI</h3>
+                    <p>Aplicação web desenvolvida para otimizar e automatizar a consulta de processos jurídicos e cadastros de servidores do sindicato.</p>
+                    <ul class="project-features">
+                        <li>Sincronização automática e leitura multi-abas de planilhas no Google Drive.</li>
+                        <li>Busca instantânea por Nome, CPF e Matrícula com tratamento de dados sensíveis.</li>
+                        <li>Escrita e atualização em tempo real via API do Google Sheets.</li>
+                        <li>Deploy contínuo integrado via GitHub e Railway.</li>
+                    </ul>
+                </div>
+            </article>
+            <article class="project-block">
+                <div class="project-image" style="background-image: url('projeto2.jpg');"></div>
+                <div class="project-content">
+                    <span class="role-tag">Design Gráfico</span>
                     <h3>Identidade Visual & Estampas</h3>
                     <p>Design Gráfico | Branding</p>
+                    <p>Projeto de identidade visual e estampas voltado para comunicação criativa, com foco em posicionamento de marca e conceito visual único.</p>
                     <a href="galeria.html?filter=estampas" class="link-projeto">Ver Galeria →</a>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('posts-igreja.jpg');"></div>
-                <div class="card-content">
+            </article>
+            <article class="project-block reverse">
+                <div class="project-image" style="background-image: url('posts-igreja.jpg');"></div>
+                <div class="project-content">
+                    <span class="role-tag">Social Media</span>
                     <h3>Design para Social Media</h3>
                     <p>Criação de Posts | Comunicação</p>
+                    <p>Conjunto de peças para redes sociais com foco em engajamento, identidade visual consistente e mensagens de impacto.</p>
                     <a href="galeria.html?filter=social-media" class="link-projeto">Ver Galeria →</a>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
 
@@ -181,7 +216,7 @@
 
 
 
-    <footer id="contato">
+    <footer class="site-footer">
         <p>© 2026 Giordana Livia - Teresina, PI</p>
         <div class="socials">
             <a href="#">LinkedIn</a>
